@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using MyBookShelf.Shared.Helpers;
 
 namespace MyBookShelf.Shared.Models
 {
@@ -10,14 +11,14 @@ namespace MyBookShelf.Shared.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "The 'Title' is mandatory!")]
-        [MaxLength(255, ErrorMessage = "The 'Title' should not exceed 255 characters!")]
+        [MaxLength(GlobalParameters.MAX_TITLE_LENGTH, ErrorMessage = "The 'Title' should not exceed " + GlobalParameters.MAX_TITLE_LENGTH_STR + " characters!")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "The 'Author' is mandatory!")]
-        [MaxLength(255, ErrorMessage = "The 'Author' should not exceed 255 characters!")]
+        [MaxLength(GlobalParameters.MAX_AUTHOR_LENGTH, ErrorMessage = "The 'Author' should not exceed" + GlobalParameters.MAX_AUTHOR_LENGTH_STR + " characters!")]
         public string Author { get; set; }
 
-        [Range(0, 2222, ErrorMessage = "The publish year should be larger than zero and not in a too distant future!")]
+        [Range(GlobalParameters.MIN_PUBLISH_YEAR, GlobalParameters.MAX_PUBLISH_YEAR, ErrorMessage = "The publish year should be in [" + GlobalParameters.MIN_PUBLISH_YEAR_STR + "," + GlobalParameters.MAX_PUBLISH_YEAR_STR + "]!")]
         public short? PublishYear { get; set; }
 
         public string Contents { get; set; }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Dapper;
 using MyBookShelf.Shared.DataAccess.Factories;
 using MyBookShelf.Shared.Extensions;
+using MyBookShelf.Shared.Helpers;
 using MyBookShelf.Shared.Models;
 
 namespace MyBookShelf.Shared.DataAccess.Repositories
@@ -21,6 +22,7 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
             public const string PUBLISH_YEAR = "@PublishYear";
             public const string CONTENTS = "@Contents";
             public const string ROWS_AFFECTED = "@RowsAffected";
+            public const string NEW_BOOK_ID = "@NewBookId";
         }
 
         internal static class UspNames
@@ -53,8 +55,6 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
 
         #endregion
 
-        
-
         #region AddBook
 
         public async Task<int> AddBookAsync(Book book)
@@ -66,11 +66,11 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
             {
                 DynamicParameters parameters = new DynamicParameters();
 
-                parameters.Add(UspParameterNames.TITLE, book.Title, DbType.String,ParameterDirection.Input, 255);
-                parameters.Add(UspParameterNames.AUTHOR, book.Author, DbType.String, ParameterDirection.Input, 255);
+                parameters.Add(UspParameterNames.TITLE, book.Title, DbType.String,ParameterDirection.Input, GlobalParameters.MAX_TITLE_LENGTH);
+                parameters.Add(UspParameterNames.AUTHOR, book.Author, DbType.String, ParameterDirection.Input, GlobalParameters.MAX_AUTHOR_LENGTH);
                 parameters.Add(UspParameterNames.PUBLISH_YEAR, book.PublishYear, DbType.Int16, ParameterDirection.Input);
-                parameters.Add(UspParameterNames.CONTENTS, book.Contents.NotEmptyStringOrDBNull(), DbType.String, ParameterDirection.Input);
-                parameters.Add(UspParameterNames.ID, book.Id, DbType.Int32, ParameterDirection.Output);
+                parameters.Add(UspParameterNames.CONTENTS, book.Contents.NotEmptyStringOrDBNull(), DbType.String, ParameterDirection.Input, -1);
+                parameters.Add(UspParameterNames.NEW_BOOK_ID, null, DbType.Int32, ParameterDirection.Output);
 
                 await connection.ExecuteAsync(
                     UspNames.ADD_BOOK, 
@@ -79,7 +79,7 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
                     null, 
                     CommandType.StoredProcedure);
 
-                return parameters.Get<int>(UspParameterNames.ID);
+                return book.Id = parameters.Get<int>(UspParameterNames.NEW_BOOK_ID);
             }
         }
 
@@ -131,10 +131,10 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
                 DynamicParameters parameters = new DynamicParameters();
 
                 parameters.Add(UspParameterNames.ID, book.Id, DbType.Int32, ParameterDirection.Input);
-                parameters.Add(UspParameterNames.TITLE, book.Title, DbType.String, ParameterDirection.Input, 255);
-                parameters.Add(UspParameterNames.AUTHOR, book.Author, DbType.String, ParameterDirection.Input, 255);
+                parameters.Add(UspParameterNames.TITLE, book.Title, DbType.String, ParameterDirection.Input, GlobalParameters.MAX_TITLE_LENGTH);
+                parameters.Add(UspParameterNames.AUTHOR, book.Author, DbType.String, ParameterDirection.Input, GlobalParameters.MAX_AUTHOR_LENGTH);
                 parameters.Add(UspParameterNames.PUBLISH_YEAR, book.PublishYear, DbType.Int16, ParameterDirection.Input);
-                parameters.Add(UspParameterNames.CONTENTS, book.Contents.NotEmptyStringOrDBNull(), DbType.String, ParameterDirection.Input);
+                parameters.Add(UspParameterNames.CONTENTS, book.Contents.NotEmptyStringOrDBNull(), DbType.String, ParameterDirection.Input, -1);
                 parameters.Add(UspParameterNames.ROWS_AFFECTED, null, DbType.Int32, ParameterDirection.Output);
 
                 await connection.ExecuteAsync(
@@ -159,7 +159,7 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
                 DynamicParameters parameters = new DynamicParameters();
 
                 parameters.Add(UspParameterNames.ID, id, DbType.Int32, ParameterDirection.Input);
-                parameters.Add(UspParameterNames.CONTENTS, contents.NotEmptyStringOrDBNull(), DbType.String, ParameterDirection.Input);
+                parameters.Add(UspParameterNames.CONTENTS, contents.NotEmptyStringOrDBNull(), DbType.String, ParameterDirection.Input, -1);
                 parameters.Add(UspParameterNames.ROWS_AFFECTED, null, DbType.Int32, ParameterDirection.Output);
 
                 await connection.ExecuteAsync(
