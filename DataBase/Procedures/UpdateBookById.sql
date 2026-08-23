@@ -3,7 +3,7 @@ CREATE PROCEDURE dbo.UpdateBookById
 	@Title NVARCHAR(255),
 	@Author NVARCHAR(255),
 	@PublishYear SMALLINT = NULL,
-	@Contents XML = NULL,
+	@Contents NVARCHAR(MAX) = NULL,
 	@RowsAffected INT OUTPUT
 AS
 BEGIN
@@ -13,9 +13,8 @@ BEGIN
 	SET Title = @Title,
 		Author = @Author,
 		PublishYear = @PublishYear,
-		Contents = @Contents
+		Contents = CAST(@Contents AS XML)
 	WHERE Id = @Id;
 
 	SET @RowsAffected = @@ROWCOUNT;
 END;
-GO

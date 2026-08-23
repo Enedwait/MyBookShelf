@@ -8,4 +8,3 @@ BEGIN
 
 	ORDER BY Id;
 END;
-GO

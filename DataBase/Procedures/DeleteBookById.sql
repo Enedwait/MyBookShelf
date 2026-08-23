@@ -10,4 +10,3 @@ BEGIN
 
 	SET @RowsAffected = @@ROWCOUNT;
 END;
-GO
