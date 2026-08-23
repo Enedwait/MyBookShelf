@@ -1,9 +1,10 @@
-﻿using MyBookShelf.Shared.Helpers;
-using MyBookShelf.WebForms.Pages;
+﻿using MyBookShelf.WebForms.Pages;
 using System;
 using System.Threading.Tasks;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MyBookShelf.WebForms.Constants;
+using MyBookShelf.WebForms.Helpers;
 
 namespace MyBookShelf.WebForms
 {
@@ -29,17 +30,17 @@ namespace MyBookShelf.WebForms
 
         private void AddBook()
         {
-            Response.NavigateTo(Pages.Pages.AddBook);
+            Response.NavigateTo(AppPages.AddBook);
         }
 
         private void ShowContents(int bookId)
         {
-            Response.NavigateTo(Pages.Pages.BookContents, $"id={bookId}");
+            Response.NavigateTo(AppPages.BookContents, $"id={bookId}");
         }
 
         private void EditBook(int bookId)
         {
-            Response.NavigateTo(Pages.Pages.UpdateBook, $"id={bookId}");
+            Response.NavigateTo(AppPages.UpdateBook, $"id={bookId}");
         }
 
         private void DeleteBook(int bookId)

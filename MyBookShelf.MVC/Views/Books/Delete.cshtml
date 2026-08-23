@@ -1,0 +1,27 @@
+﻿@model MyBookShelf.Shared.Models.Book;
+
+@{ ViewData[@ViewKeys.Title] = "Delete book from MyBookShelf"; }
+
+<h2>@ViewData[@ViewKeys.Title]</h2>
+<hr />
+<div>
+	<dl>
+		<dt>@Html.DisplayNameFor(model => model.Title)</dt>
+		<dd>@Html.DisplayFor(model => model.Title)</dd>
+		<dt>@Html.DisplayNameFor(model => model.Author)</dt>
+		<dd>@Html.DisplayFor(model => model.Author)</dd>
+		<dt>@Html.DisplayNameFor(model => model.PublishYear)</dt>
+		<dd>@Html.DisplayFor(model => model.PublishYear)</dd>
+	</dl>
+	
+	<h4>Are you sure you want to delete this book?</h4>
+	
+	<form asp-action="@BooksControllerActionNames.Delete" method="post">
+		<input type="hidden" asp-for="Id"/>
+		@Html.AntiForgeryToken()
+		<input type="submit" value="Delete" class="btn btn-danger"/>
+		<a asp-action="@BooksControllerActionNames.Index" class="btn btn-secondary">Cancel</a>
+	</form>
+</div>
+
+

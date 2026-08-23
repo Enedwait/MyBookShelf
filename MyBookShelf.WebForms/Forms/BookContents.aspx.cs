@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyBookShelf.Shared.Helpers;
+using MyBookShelf.WebForms.Helpers;
 
 namespace MyBookShelf.WebForms.Forms
 {
@@ -25,7 +26,7 @@ namespace MyBookShelf.WebForms.Forms
             Book book = await Repository.GetBookByIdAsync(bookId);
             if (book == null)
             {
-                Response.NavigateTo(Pages.Pages.Default);
+                Response.NavigateTo(AppPages.Default);
                 return;
             }
             
@@ -55,7 +56,7 @@ namespace MyBookShelf.WebForms.Forms
             try
             {
                 await Repository.UpdateContentsByBookIdAsync(bookId, textContents.Text);
-                Response.NavigateTo(Pages.Pages.Default);
+                Response.NavigateTo(AppPages.Default);
             }
             catch (Exception ex)
             {
@@ -72,7 +73,7 @@ namespace MyBookShelf.WebForms.Forms
             string idParam = Request.QueryString["Id"];
             if (!int.TryParse(idParam, out int bookId))
             {
-                Response.NavigateTo(Pages.Pages.Default);
+                Response.NavigateTo(AppPages.Default);
                 return;
             }
 
@@ -89,7 +90,7 @@ namespace MyBookShelf.WebForms.Forms
 
         protected void buttonCancel_Click(object sender, EventArgs e)
         {
-            Response.NavigateTo(Pages.Pages.Default);
+            Response.NavigateTo(AppPages.Default);
         }
 
         #endregion

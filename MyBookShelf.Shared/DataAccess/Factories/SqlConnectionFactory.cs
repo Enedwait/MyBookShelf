@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using MyBookShelf.Shared.Constants;
 
 namespace MyBookShelf.Shared.DataAccess.Factories
 {
@@ -18,6 +20,19 @@ namespace MyBookShelf.Shared.DataAccess.Factories
         {
             if (string.IsNullOrWhiteSpace(connectionString))
                 throw new ArgumentNullException(nameof(connectionString));
+
+            this._connectionString = connectionString;
+        }
+
+
+        public SqlConnectionFactory(IConfiguration configuration)
+        {
+            if (configuration == null)
+                throw new ArgumentNullException(nameof(configuration));
+
+            string connectionString = configuration.GetConnectionString(Defaults.CONNECTION);
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new InvalidOperationException($"{Defaults.CONNECTION} not found in {configuration}!");
 
             this._connectionString = connectionString;
         }

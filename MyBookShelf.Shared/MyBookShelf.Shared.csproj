@@ -3,14 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Title>MyBookShelf.Shared</Title>
-    <Authors>OKRT</Authors>
-    <Description>The shared library for MyBookShelf project.</Description>
+    <Authors>Oleg Tolmachyov</Authors>
+    <Description>The shared library for the MyBookShelf application.</Description>
     <UserSecretsId>30a8cf4a-663f-4b22-89d7-99183a912473</UserSecretsId>
+    <Company>OKRT</Company>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.79" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.11" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 

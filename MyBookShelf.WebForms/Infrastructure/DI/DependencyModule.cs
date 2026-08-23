@@ -1,11 +1,14 @@
 ﻿using Autofac;
+using MyBookShelf.Shared.Constants;
 using MyBookShelf.Shared.DataAccess.Factories;
 using MyBookShelf.Shared.DataAccess.Repositories;
 
 namespace MyBookShelf.WebForms.Infrastructure.DI
 {
-    public class DependencyModule : Module
+    public sealed class DependencyModule : Module
     {
+        #region Load
+
         protected override void Load(ContainerBuilder builder)
         {
             string connectionString = System.Configuration.ConfigurationManager
@@ -19,10 +22,7 @@ namespace MyBookShelf.WebForms.Infrastructure.DI
                 .As<IBookRepository>()
                 .InstancePerLifetimeScope();
         }
-    }
 
-    internal static class Defaults
-    {
-        public const string CONNECTION = "DefaultConnection";
+        #endregion
     }
 }

@@ -1,10 +1,11 @@
-﻿using MyBookShelf.Shared.Helpers;
-using MyBookShelf.Shared.Models;
+﻿using MyBookShelf.Shared.Models;
 using MyBookShelf.WebForms.Pages;
 using System;
 using System.Threading.Tasks;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MyBookShelf.WebForms.Helpers;
+using MyBookShelf.Shared.Constants;
 
 namespace MyBookShelf.WebForms.Forms
 {
@@ -40,7 +41,7 @@ namespace MyBookShelf.WebForms.Forms
             try
             {
                 await Repository.AddBookAsync(book);
-                Response.NavigateTo(Pages.Pages.Default);
+                Response.NavigateTo(AppPages.Default);
             }
             catch (Exception ex)
             {
@@ -65,7 +66,7 @@ namespace MyBookShelf.WebForms.Forms
 
         protected void buttonCancel_Click(object sender, EventArgs e)
         {
-            Response.NavigateTo(Pages.Pages.Default);
+            Response.NavigateTo(AppPages.Default);
         }
 
         #endregion

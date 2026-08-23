@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using MyBookShelf.Shared.Helpers;
+using MyBookShelf.Shared.Constants;
 
 namespace MyBookShelf.Shared.Models
 {

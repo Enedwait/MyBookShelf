@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MyBookShelf.Shared.Models.Book>
+
+@{ ViewData[@ViewKeys.Title] = "Books from MyBookShelf!"; }
+
+<h2>@ViewData[@ViewKeys.Title]</h2>
+<hr />
+<p><a asp-action="@BooksControllerActionNames.Create" class="btn btn-primary">Add Book</a></p>
+<table>
+	<thead>
+	<tr>
+		<th>@Html.DisplayNameFor(model => model.Title)</th>
+		<th>@Html.DisplayNameFor(model => model.Author)</th>
+		<th>@Html.DisplayNameFor(model => model.PublishYear)</th>
+		<th>@Html.DisplayNameFor(model => model.Contents)</th>
+		<th>@Html.DisplayName("Commands")</th>
+	</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@Html.DisplayFor(modelItem => item.Title)</td>
+				<td>@Html.DisplayFor(modelItem => item.Author)</td>
+				<td>@Html.DisplayFor(modelItem => item.PublishYear)</td>
+				<td><a asp-action="@BooksControllerActionNames.ShowContents" asp-route-id="@item.Id">Show</a></td>
+				<td>
+					<a asp-action="@BooksControllerActionNames.Edit" asp-route-id="@item.Id">Edit</a>
+					<a asp-action="@BooksControllerActionNames.Delete" asp-route-id="@item.Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

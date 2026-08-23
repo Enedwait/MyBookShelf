@@ -4,6 +4,7 @@ using System;
 using System.Web;
 using System.Web.UI.WebControls;
 using MyBookShelf.Shared.Helpers;
+using MyBookShelf.Shared.Constants;
 
 namespace MyBookShelf.WebForms.Pages
 {
