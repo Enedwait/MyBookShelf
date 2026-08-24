@@ -1,10 +1,11 @@
-﻿using MyBookShelf.WebForms.Pages;
+﻿using MyBookShelf.WebForms.Constants;
+using MyBookShelf.WebForms.Helpers;
+using MyBookShelf.WebForms.Pages;
 using System;
 using System.Threading.Tasks;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MyBookShelf.WebForms.Constants;
-using MyBookShelf.WebForms.Helpers;
+using MyBookShelf.Shared.Helpers;
 
 namespace MyBookShelf.WebForms
 {
@@ -23,8 +24,9 @@ namespace MyBookShelf.WebForms
         private async Task LoadBooksAsync()
         {
             var books = await Repository.GetAllBooksAsync();
+            var viewModels = await Reader.GetBookListItemsAsync(books);
 
-            gridViewBooks.DataSource = books;
+            gridViewBooks.DataSource = viewModels;
             gridViewBooks.DataBind();
         }
 
@@ -65,15 +67,8 @@ namespace MyBookShelf.WebForms
 
         #region Events Handling
 
-        protected override void OnLoadedFirstTime(object sender, EventArgs e)
-        {
-            LoadBooks();
-        }
-
-        protected void buttonAddBook_OnClick(object sender, EventArgs e)
-        {
-            AddBook();
-        }
+        protected override void OnLoadedFirstTime(object sender, EventArgs e) => LoadBooks();
+        protected void buttonAddBook_OnClick(object sender, EventArgs e) => AddBook();
 
         protected void gridViewBooks_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {

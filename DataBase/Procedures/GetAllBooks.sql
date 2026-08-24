@@ -5,6 +5,5 @@ BEGIN
 
 	SELECT Id, Title, Author, PublishYear, Contents
 	FROM dbo.Books
-
 	ORDER BY Id;
 END;

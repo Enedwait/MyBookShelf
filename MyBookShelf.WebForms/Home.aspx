@@ -48,6 +48,23 @@
                         runat="server"/>
                 </ItemTemplate>
             </asp:TemplateField>
+            
+            <asp:BoundField DataField="TotalPages" HeaderText="Total Pages" NullDisplayText="-"/>
+            <asp:BoundField DataField="ChapterCount" HeaderText="Chapter Count" NullDisplayText="-"/>
+            
+            <asp:TemplateField HeaderText="Chapters">
+                <ItemTemplate>
+                    <div style="max-height: 64px; overflow-y: auto">
+                        <asp:Repeater 
+                            DataSource='<%# Eval("Chapters") %>'
+                            runat="server">
+                            <ItemTemplate>
+                                <div><%# Eval("Title") %>, <%# Eval("Page") %></div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </ItemTemplate>
+            </asp:TemplateField>
 
             <asp:TemplateField HeaderText="Commands">
                 <ItemTemplate>

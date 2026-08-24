@@ -1,0 +1,17 @@
+<BookContents>															<!-- 0..1 -->
+	<Header>															<!-- 0..1 -->
+		<Book Title="Название книги"/>									<!-- 0..1 -->
+		<Caption Title="Заголовок оглавления"/>							<!-- 0..1 -->
+		<Pages Total="1234" />											<!-- 0..1 -->
+	</Header>
+	<Contents>															<!-- 0..1 -->
+		<Part Title="Название части или тома" Page="0">					<!-- 0..M -->
+			<Section Title="Название раздела" Page="1">					<!-- 0..M -->
+				<Chapter Title="Название главы" Page="2">				<!-- 0..M -->
+					<Paragraph Title="Название параграфа" Page="3"/>	<!-- 0..M -->
+				</Chapter>
+			</Section>
+		</Part>
+	</Contents>
+</BookContents>
+	

@@ -280,90 +280,6 @@
     <Content Include="Scripts\jquery-3.7.0.slim.js" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\tinymce\icons\default\icons.js" />
-    <Content Include="Scripts\tinymce\icons\default\icons.min.js" />
-    <Content Include="Scripts\tinymce\models\dom\model.js" />
-    <Content Include="Scripts\tinymce\models\dom\model.min.js" />
-    <Content Include="Scripts\tinymce\notices.txt" />
-    <Content Include="Scripts\tinymce\plugins\accordion\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\accordion\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\advlist\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\anchor\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\autolink\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\autolink\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\autosave\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\charmap\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\codesample\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\codesample\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\code\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\help\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\help\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\image\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\image\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\importcss\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\importcss\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\link\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\link\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\lists\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\lists\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\media\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\media\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\preview\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\quickbars\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\quickbars\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\save\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\save\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\table\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\table\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.min.js" />
-    <Content Include="Scripts\tinymce\skins\content\dark\content.css" />
-    <Content Include="Scripts\tinymce\skins\content\dark\content.js" />
-    <Content Include="Scripts\tinymce\skins\content\dark\content.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide-dark\skin.shadowdom.js" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\content.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\content.inline.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\content.inline.js" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\content.inline.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\content.js" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\content.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\skin.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\skin.js" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\skin.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\skin.shadowdom.css" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\skin.shadowdom.js" />
-    <Content Include="Scripts\tinymce\skins\ui\oxide\skin.shadowdom.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\content.css" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\content.inline.css" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\content.inline.js" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\content.inline.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\content.js" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\content.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\skin.css" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\skin.js" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\skin.min.css" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\skin.shadowdom.css" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\skin.shadowdom.js" />
-    <Content Include="Scripts\tinymce\skins\ui\tinymce-5\skin.shadowdom.min.css" />
-    <Content Include="Scripts\tinymce\themes\silver\theme.js" />
-    <Content Include="Scripts\tinymce\themes\silver\theme.min.js" />
-    <Content Include="Scripts\tinymce\tinymce.js" />
-    <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -470,14 +386,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\tinymce\plugins\help\js\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
-    <Content Include="Scripts\tinymce\license.md" />
-    <Content Include="Scripts\tinymce\langs\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -490,30 +403,6 @@
       <Project>{b6dfe430-85c1-49d9-8cb9-4b8df25a1d34}</Project>
       <Name>MyBookShelf.Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\tinymce\skins\content\dark\content.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\content\dark\content.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide-dark\skin.shadowdom.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide-dark\skin.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide\content.inline.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide\content.inline.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide\content.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide\content.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide\skin.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide\skin.shadowdom.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide\skin.shadowdom.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\oxide\skin.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\tinymce-5\content.inline.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\tinymce-5\content.inline.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\tinymce-5\content.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\tinymce-5\content.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\tinymce-5\skin.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\tinymce-5\skin.shadowdom.min.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\tinymce-5\skin.shadowdom.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\skins\ui\tinymce-5\skin.ts" />
-    <TypeScriptCompile Include="Scripts\tinymce\tinymce.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

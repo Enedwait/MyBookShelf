@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyBookShelf.MVC.Constants;
 using MyBookShelf.Shared.DataAccess.Repositories;
+using MyBookShelf.Shared.Helpers;
 using MyBookShelf.Shared.Models;
 
 namespace MyBookShelf.MVC.Controllers
@@ -11,27 +12,34 @@ namespace MyBookShelf.MVC.Controllers
 
         private readonly ILogger<BooksController> _logger;
         private readonly IBookRepository _repository;
+        private readonly IBookContentsReader _contentsReader;
 
         #endregion
 
         #region Init
 
-        public BooksController(IBookRepository repository, ILogger<BooksController> logger)
+        public BooksController(IBookRepository repository, IBookContentsReader contentsReader, ILogger<BooksController> logger)
         {
             this._repository = repository;
             this._logger = logger;
+            this._contentsReader = contentsReader;
         }
 
         #endregion
 
-        #region Methods
+        #region Index
 
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             var books = await _repository.GetAllBooksAsync();
-            return View(books);
+            var viewModels = await _contentsReader.GetBookListItemsAsync(books);
+            return View(viewModels);
         }
+
+        #endregion
+
+        #region Create
 
         [HttpGet, ActionName(BooksControllerActionNames.Create)]
         public IActionResult Create() => View();
@@ -48,6 +56,10 @@ namespace MyBookShelf.MVC.Controllers
 
             return View(book);
         }
+
+        #endregion
+
+        #region BookContents
 
         [HttpGet, ActionName(BooksControllerActionNames.BookContents)]
         public async Task<IActionResult> BookContents(int id)
@@ -71,6 +83,10 @@ namespace MyBookShelf.MVC.Controllers
             return View(book);
         }
 
+        #endregion
+
+        #region Edit
+
         [HttpGet, ActionName(BooksControllerActionNames.Edit)]
         public async Task<IActionResult> Edit(int id)
         {
@@ -92,6 +108,10 @@ namespace MyBookShelf.MVC.Controllers
             }
             return View(book);
         }
+
+        #endregion
+
+        #region Delete
 
         [HttpGet, ActionName(BooksControllerActionNames.Delete)]
         public async Task<IActionResult> Delete(int id)

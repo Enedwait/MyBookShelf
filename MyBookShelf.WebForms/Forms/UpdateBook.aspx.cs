@@ -3,7 +3,6 @@ using MyBookShelf.WebForms.Pages;
 using System;
 using System.Threading.Tasks;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using MyBookShelf.WebForms.Helpers;
 using MyBookShelf.Shared.Constants;
 
@@ -44,6 +43,11 @@ namespace MyBookShelf.WebForms.Forms
             textAuthor.Text = book.Author;
             textPublishYear.Text = book.PublishYear?.ToString();
             textContents.Text = book.Contents;
+        }
+
+        protected void Save()
+        {
+            Page.RegisterAsyncTask(new PageAsyncTask(async () => await SaveAsync()));
         }
 
         protected async Task SaveAsync()
@@ -90,21 +94,10 @@ namespace MyBookShelf.WebForms.Forms
             LoadBook(bookId);
         }
 
-        protected void buttonSave_Click(object sender, EventArgs e)
-        {
-            Page.RegisterAsyncTask(new PageAsyncTask(async () =>
-            {
-                WebControl control = sender as WebControl;
-                if (control != null) control.Enabled = false;
-                await SaveAsync();
-                if (control != null) control.Enabled = true;
-            }));
-        }
+        protected void buttonSave_Click(object sender, EventArgs e) => Save();
 
-        protected void buttonCancel_Click(object sender, EventArgs e)
-        {
+        protected void buttonCancel_Click(object sender, EventArgs e) =>
             Response.NavigateTo(AppPages.Default);
-        }
 
         #endregion
     }

@@ -1,11 +1,12 @@
 using MyBookShelf.Shared.DataAccess.Factories;
 using MyBookShelf.Shared.DataAccess.Repositories;
-using MyBookShelf.Shared.Models;
 
 namespace MyBookShelf.MVC
 {
     public sealed class Program
     {
+        #region Main
+
         public static void Main(string[] args)
         {
             var app = CreateBuilder(args).Build();
@@ -30,6 +31,10 @@ namespace MyBookShelf.MVC
             app.Run();
         }
 
+        #endregion
+
+        #region Builder
+
         private static WebApplicationBuilder CreateBuilder(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -37,8 +42,11 @@ namespace MyBookShelf.MVC
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<IDbConnectionFactory, SqlConnectionFactory>();
             builder.Services.AddScoped<IBookRepository, BookRepository>();
+            builder.Services.AddScoped<IBookContentsReader, BookContentsReader>();
 
             return builder;
         }
+
+        #endregion
     }
 }

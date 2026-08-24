@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <StartupObject>MyBookShelf.MVC.Program</StartupObject>
     <Description>The ASP.NET MVC Core version of the MyBookShelf Application</Description>

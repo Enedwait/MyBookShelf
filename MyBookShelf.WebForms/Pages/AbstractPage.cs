@@ -11,6 +11,7 @@ namespace MyBookShelf.WebForms.Pages
         #region Properties
 
         public IBookRepository Repository { get; set; }
+        public IBookContentsReader Reader { get; set; }
 
         #endregion
 

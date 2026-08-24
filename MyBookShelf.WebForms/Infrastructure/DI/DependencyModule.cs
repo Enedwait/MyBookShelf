@@ -21,6 +21,10 @@ namespace MyBookShelf.WebForms.Infrastructure.DI
             builder.RegisterType<BookRepository>()
                 .As<IBookRepository>()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<BookContentsReader>()
+                .As<IBookContentsReader>()
+                .InstancePerLifetimeScope();
         }
 
         #endregion

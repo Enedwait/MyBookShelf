@@ -6,6 +6,5 @@ BEGIN
 
 	SELECT Id, Title, Author, PublishYear, Contents
 	FROM dbo.Books
-
 	WHERE Id = @Id;
 END;

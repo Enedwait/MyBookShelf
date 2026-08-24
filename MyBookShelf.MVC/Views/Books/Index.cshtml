@@ -1,8 +1,6 @@
-﻿@model IEnumerable<MyBookShelf.Shared.Models.Book>
+﻿@model IEnumerable<MyBookShelf.Shared.Models.BookListItem>
 
-@{
-	ViewData[@ViewKeys.Title] = "Books from MyBookShelf!";
-}
+@{ ViewData[@ViewKeys.Title] = "Books from MyBookShelf!"; }
 
 <h2>@ViewData[@ViewKeys.Title]</h2>
 <hr/>
@@ -14,6 +12,9 @@
 		<th>@Html.DisplayNameFor(model => model.Author)</th>
 		<th>@Html.DisplayNameFor(model => model.PublishYear)</th>
 		<th>@Html.DisplayNameFor(model => model.Contents)</th>
+		<th>@Html.DisplayNameFor(model => model.TotalPages)</th>
+		<th>@Html.DisplayNameFor(model => model.ChapterCount)</th>
+		<th>@Html.DisplayNameFor(model => model.Chapters)</th>
 		<th>@Html.DisplayName("Commands")</th>
 	</tr>
 	</thead>
@@ -25,6 +26,21 @@
 				<td>@Html.DisplayFor(modelItem => item.Author)</td>
 				<td>@Html.DisplayFor(modelItem => item.PublishYear)</td>
 				<td><a asp-action="@BooksControllerActionNames.BookContents" asp-route-id="@item.Id">Show</a></td>
+				<td>@Html.DisplayFor(modelItem => item.TotalPages)</td>
+				<td>@Html.DisplayFor(modelItem => item.ChapterCount)</td>
+				<td>
+					@if (item.Chapters != null && item.Chapters.Any())
+					{
+						<div style="max-height: 64px; overflow-y: auto">
+							<ul>
+								@foreach (var chapter in item.Chapters)
+								{
+									<li>@chapter.Title, @chapter.Page</li>
+								}
+							</ul>
+						</div>
+					}
+				</td>
 				<td>
 					<a asp-action="@BooksControllerActionNames.Edit" asp-route-id="@item.Id">Edit</a>
 					<a asp-action="@BooksControllerActionNames.Delete" asp-route-id="@item.Id">Delete</a>

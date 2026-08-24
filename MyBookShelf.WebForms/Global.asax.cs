@@ -4,6 +4,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Web;
+using MyBookShelf.WebForms.Helpers;
 using MyBookShelf.WebForms.Infrastructure.DI;
 
 namespace MyBookShelf.WebForms
@@ -34,6 +35,12 @@ namespace MyBookShelf.WebForms
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        void Application_BeginRequest(object sender, EventArgs e)
+        {
+            string path = Request.AppRelativeCurrentExecutionFilePath;
+            if (path == $"~/") Response.NavigateTo(AppPages.Default);
         }
 
         #endregion

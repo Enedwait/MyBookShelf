@@ -3,7 +3,6 @@ using MyBookShelf.WebForms.Pages;
 using System;
 using System.Threading.Tasks;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using MyBookShelf.Shared.Helpers;
 using MyBookShelf.WebForms.Helpers;
 
@@ -80,18 +79,10 @@ namespace MyBookShelf.WebForms.Forms
             LoadBook(bookId);
         }
 
-        protected void buttonSave_Click(object sender, EventArgs e)
-        {
-            WebControl control = sender as WebControl;
-            if (control != null) control.Enabled = false;
-            Save();
-            if (control != null) control.Enabled = true;
-        }
+        protected void buttonSave_Click(object sender, EventArgs e) => Save();
 
-        protected void buttonCancel_Click(object sender, EventArgs e)
-        {
+        protected void buttonCancel_Click(object sender, EventArgs e) =>
             Response.NavigateTo(AppPages.Default);
-        }
 
         #endregion
     }

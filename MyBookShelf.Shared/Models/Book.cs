@@ -1,13 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-using MyBookShelf.Shared.Attributes;
+﻿using MyBookShelf.Shared.Attributes;
 using MyBookShelf.Shared.Constants;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyBookShelf.Shared.Models
 {
     public sealed class Book : IBook
     {
         #region Properties
-
+        
         public int Id { get; set; }
 
         [Required(ErrorMessage = "The 'Title' is mandatory!")]
@@ -18,6 +19,7 @@ namespace MyBookShelf.Shared.Models
         [MaxLength(GlobalParameters.MAX_AUTHOR_LENGTH, ErrorMessage = "The 'Author' should not exceed" + GlobalParameters.MAX_AUTHOR_LENGTH_STR + " characters!")]
         public string Author { get; set; }
 
+        [DisplayName("Publish Year")]
         [Range(GlobalParameters.MIN_PUBLISH_YEAR, GlobalParameters.MAX_PUBLISH_YEAR, ErrorMessage = "The publish year must be in [" + GlobalParameters.MIN_PUBLISH_YEAR_STR + "," + GlobalParameters.MAX_PUBLISH_YEAR_STR + "]!")]
         public short? PublishYear { get; set; }
 
