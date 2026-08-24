@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using MyBookShelf.Shared.Attributes;
 using MyBookShelf.Shared.Constants;
 
 namespace MyBookShelf.Shared.Models
@@ -18,9 +19,10 @@ namespace MyBookShelf.Shared.Models
         [MaxLength(GlobalParameters.MAX_AUTHOR_LENGTH, ErrorMessage = "The 'Author' should not exceed" + GlobalParameters.MAX_AUTHOR_LENGTH_STR + " characters!")]
         public string Author { get; set; }
 
-        [Range(GlobalParameters.MIN_PUBLISH_YEAR, GlobalParameters.MAX_PUBLISH_YEAR, ErrorMessage = "The publish year should be in [" + GlobalParameters.MIN_PUBLISH_YEAR_STR + "," + GlobalParameters.MAX_PUBLISH_YEAR_STR + "]!")]
+        [Range(GlobalParameters.MIN_PUBLISH_YEAR, GlobalParameters.MAX_PUBLISH_YEAR, ErrorMessage = "The publish year must be in [" + GlobalParameters.MIN_PUBLISH_YEAR_STR + "," + GlobalParameters.MAX_PUBLISH_YEAR_STR + "]!")]
         public short? PublishYear { get; set; }
 
+        [ValidXMLString(ErrorMessage = "Contents must be a valid XML string or null!")]
         public string Contents { get; set; }
 
         #endregion

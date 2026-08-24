@@ -1,0 +1,32 @@
+﻿@model MyBookShelf.Shared.Models.Book
+
+@{ ViewData[@ViewKeys.Title] = $"Contents of {Model.Title} by {Model.Author} ({Model.PublishYear})"; }
+
+<h2>@ViewData[@ViewKeys.Title]</h2>
+<hr />
+<div>
+	<form asp-action="@BooksControllerActionNames.BookContents" method="post">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<input type="hidden" asp-for="Id" />
+		<input type="hidden" asp-for="Title" />
+		<input type="hidden" asp-for="Author" />
+		<input type="hidden" asp-for="PublishYear" />
+		<div>
+			<label asp-for="Contents" class="control-label"></label>
+			<textarea asp-for="Contents" class="form-control" rows="7"></textarea>
+			<span asp-validation-for="Contents" class="text-danger"></span>
+		</div>
+		<hr />
+		<div>
+			<input type="submit" value="Save" class="btn btn-primary" />
+			<a asp-action="@BooksControllerActionNames.Index" class="btn btn-secondary">Cancel</a>
+		</div>
+	</form>
+</div>
+
+@section Scripts
+{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

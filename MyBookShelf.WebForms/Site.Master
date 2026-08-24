@@ -7,7 +7,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - MyBookShelf.WebForms by Oleg Tolmachyov</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -60,7 +60,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> -  MyBookShelf.WebForms by Oleg Tolmachyov <a href="https://github.com/Enedwait/MyBookShelf" target="_blank" rel="noopener noreferrer">My GitHub</a></p>
             </footer>
         </div>
     </form>

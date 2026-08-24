@@ -49,17 +49,17 @@ namespace MyBookShelf.MVC.Controllers
             return View(book);
         }
 
-        [HttpGet, ActionName(BooksControllerActionNames.ShowContents)]
-        public async Task<IActionResult> ShowContents(int id)
+        [HttpGet, ActionName(BooksControllerActionNames.BookContents)]
+        public async Task<IActionResult> BookContents(int id)
         {
             Book book = await _repository.GetBookByIdAsync(id);
             if (book == null) return NotFound(id);
-            return View(book.Contents);
+            return View(book);
         }
 
-        [HttpPost, ActionName(BooksControllerActionNames.ShowContents)]
+        [HttpPost, ActionName(BooksControllerActionNames.BookContents)]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ShowContentsConfirmed(int id, Book book)
+        public async Task<IActionResult> BookContents(int id, Book book)
         {
             if (id != book.Id) return BadRequest();
             if (ModelState.IsValid)

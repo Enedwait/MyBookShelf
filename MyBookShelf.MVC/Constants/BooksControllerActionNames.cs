@@ -7,11 +7,9 @@ namespace MyBookShelf.MVC.Constants
     {
         public const string Index = nameof(BooksController.Index);
         public const string Create = nameof(BooksController.Create);
-        public const string Get = "Get";
         public const string Edit = nameof(BooksController.Edit);
         public const string Delete = nameof(BooksController.Delete);
-        //public const string DeleteConfirmed = nameof(BooksController.DeleteConfirmed);
-        public const string ShowContents = nameof(BooksController.ShowContents);
+        public const string BookContents = nameof(BooksController.BookContents);
     }
 
     internal static class BookPropertyNames
