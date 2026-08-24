@@ -1,7 +1,5 @@
 ﻿using MyBookShelf.Shared.DataAccess.Repositories;
-using MyBookShelf.WebForms.Forms;
 using System;
-using System.Web;
 using System.Web.UI.WebControls;
 using MyBookShelf.Shared.Helpers;
 using MyBookShelf.Shared.Constants;
@@ -32,7 +30,7 @@ namespace MyBookShelf.WebForms.Pages
         }
 
         protected virtual string GetPublishYearErrorMessage() =>
-            $"The publish year should be in [{GlobalParameters.MIN_PUBLISH_YEAR_STR},{GlobalParameters.MAX_PUBLISH_YEAR_STR}";
+            $"The publish year must be in [{GlobalParameters.MIN_PUBLISH_YEAR_STR},{GlobalParameters.MAX_PUBLISH_YEAR_STR}]";
 
         #endregion
 

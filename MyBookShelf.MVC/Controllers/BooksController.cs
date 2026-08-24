@@ -52,7 +52,7 @@ namespace MyBookShelf.MVC.Controllers
         [HttpGet, ActionName(BooksControllerActionNames.BookContents)]
         public async Task<IActionResult> BookContents(int id)
         {
-            Book book = await _repository.GetBookByIdAsync(id);
+            IBook book = await _repository.GetBookByIdAsync(id);
             if (book == null) return NotFound(id);
             return View(book);
         }
@@ -74,7 +74,7 @@ namespace MyBookShelf.MVC.Controllers
         [HttpGet, ActionName(BooksControllerActionNames.Edit)]
         public async Task<IActionResult> Edit(int id)
         {
-            Book book = await _repository.GetBookByIdAsync(id);
+            IBook book = await _repository.GetBookByIdAsync(id);
             if (book == null) return NotFound(id);
             return View(book);
         }
@@ -96,7 +96,7 @@ namespace MyBookShelf.MVC.Controllers
         [HttpGet, ActionName(BooksControllerActionNames.Delete)]
         public async Task<IActionResult> Delete(int id)
         {
-            Book book = await _repository.GetBookByIdAsync(id);
+            IBook book = await _repository.GetBookByIdAsync(id);
             if (book == null) return NotFound(id);
             return View(book);
         }

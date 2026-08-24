@@ -30,7 +30,7 @@ namespace MyBookShelf.WebForms.Forms
             if (!Page.IsValid)
                 return;
 
-            Book book = new Book
+            IBook book = new Book
             {
                 Title = textTitle.Text.Trim(),
                 Author = textAuthor.Text.Trim(),

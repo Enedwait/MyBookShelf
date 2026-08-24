@@ -32,7 +32,7 @@ namespace MyBookShelf.WebForms.Forms
 
         protected async Task LoadBookAsync(int bookId)
         {
-            Book book = await Repository.GetBookByIdAsync(bookId);
+            IBook book = await Repository.GetBookByIdAsync(bookId);
             if (book == null)
             {
                 Response.NavigateTo(AppPages.Default);
@@ -54,7 +54,7 @@ namespace MyBookShelf.WebForms.Forms
             if (!int.TryParse(hiddenBookId.Value, out int bookId))
                 return;
 
-            Book book = new Book
+            IBook book = new Book
             {
                 Id = bookId,
                 Title = textTitle.Text.Trim(),

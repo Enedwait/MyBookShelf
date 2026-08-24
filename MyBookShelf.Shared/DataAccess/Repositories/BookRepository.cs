@@ -57,7 +57,7 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
 
         #region AddBook
 
-        public async Task<int> AddBookAsync(Book book)
+        public async Task<int> AddBookAsync(IBook book)
         {
             if (book == null)
                 throw new ArgumentNullException(nameof(book));
@@ -87,7 +87,7 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
 
         #region GetBook
 
-        public async Task<Book> GetBookByIdAsync(int id)
+        public async Task<IBook> GetBookByIdAsync(int id)
         {
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -104,7 +104,7 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
             }
         }
 
-        public async Task<IEnumerable<Book>> GetAllBooksAsync()
+        public async Task<IEnumerable<IBook>> GetAllBooksAsync()
         {
             using (IDbConnection connection = _connectionFactory.CreateConnection())
             {
@@ -121,7 +121,7 @@ namespace MyBookShelf.Shared.DataAccess.Repositories
 
         #region UpdateBook
 
-        public async Task<bool> UpdateBookAsync(Book book)
+        public async Task<bool> UpdateBookAsync(IBook book)
         {
             if (book == null)
                 throw new ArgumentNullException(nameof(book));

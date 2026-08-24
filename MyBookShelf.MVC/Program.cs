@@ -1,5 +1,6 @@
 using MyBookShelf.Shared.DataAccess.Factories;
 using MyBookShelf.Shared.DataAccess.Repositories;
+using MyBookShelf.Shared.Models;
 
 namespace MyBookShelf.MVC
 {

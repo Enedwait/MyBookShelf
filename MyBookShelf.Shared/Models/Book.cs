@@ -1,11 +1,10 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using MyBookShelf.Shared.Attributes;
 using MyBookShelf.Shared.Constants;
 
 namespace MyBookShelf.Shared.Models
 {
-    public sealed class Book : IEquatable<Book>
+    public sealed class Book : IBook
     {
         #region Properties
 
@@ -32,14 +31,14 @@ namespace MyBookShelf.Shared.Models
         public override string ToString() => 
             $"{Id}: {Title}, {Author}";
 
-        public bool Equals(Book other)
+        public bool Equals(IBook other)
         {
             if (other == null) return false;
             return Id.Equals(other.Id);
         }
 
         public override bool Equals(object obj) =>
-            obj is Book other && Equals(other);
+            obj is IBook other && Equals(other);
 
         public override int GetHashCode() => 
             Id.GetHashCode();
