@@ -47,6 +47,8 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+[Mm]y[Bb]ook[Ss]helf.[Ww]eb[Ff]orms/[Ss]cripts/ckeditor/
+
 # Build results on 'Bin' directories
 **/[Bb]in/*
 # Uncomment if you have tasks that rely on *.refresh files to move binaries

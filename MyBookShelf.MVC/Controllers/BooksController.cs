@@ -50,8 +50,17 @@ namespace MyBookShelf.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _repository.AddBookAsync(book);
-                return RedirectToAction(BooksControllerActionNames.Index);
+                string contents = book.Contents.SanitizeText();
+                if (!contents.IsValidXml(out Exception exception))
+                {
+                    ModelState.AddModelError(String.Empty, exception.Message);
+                }
+                else
+                {
+                    book.Contents = contents;
+                    await _repository.AddBookAsync(book);
+                    return RedirectToAction(BooksControllerActionNames.Index);
+                }
             }
 
             return View(book);
@@ -76,9 +85,17 @@ namespace MyBookShelf.MVC.Controllers
             if (id != book.Id) return BadRequest();
             if (ModelState.IsValid)
             {
-                bool updated = await _repository.UpdateContentsByBookIdAsync(book.Id, book.Contents);
-                if (!updated) return NotFound(id);
-                return RedirectToAction(BooksControllerActionNames.Index);
+                string contents = book.Contents.SanitizeText();
+                if (!contents.IsValidXml(out Exception exception))
+                {
+                    ModelState.AddModelError(String.Empty, exception.Message);
+                }
+                else
+                {
+                    bool updated = await _repository.UpdateContentsByBookIdAsync(book.Id, contents);
+                    if (!updated) return NotFound(id);
+                    return RedirectToAction(BooksControllerActionNames.Index);
+                }
             }
             return View(book);
         }
@@ -102,9 +119,18 @@ namespace MyBookShelf.MVC.Controllers
             if (id != book.Id) return BadRequest();
             if (ModelState.IsValid)
             {
-                bool updated = await _repository.UpdateBookAsync(book);
-                if (!updated) return NotFound(id);
-                return RedirectToAction(BooksControllerActionNames.Index);
+                string contents = book.Contents.SanitizeText();
+                if (!contents.IsValidXml(out Exception exception))
+                {
+                    ModelState.AddModelError(String.Empty, exception.Message);
+                }
+                else
+                {
+                    book.Contents = contents;
+                    bool updated = await _repository.UpdateBookAsync(book);
+                    if (!updated) return NotFound(id);
+                    return RedirectToAction(BooksControllerActionNames.Index);
+                }
             }
             return View(book);
         }

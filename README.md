@@ -36,6 +36,8 @@
 | Autofac.Web | 7.0.0 |
 | Dapper | 2.1.79 |
 | Microsoft.Data.SqlClient | 7.0.2 |
+| HtmlSanitizer | 9.2.995 |
+| CKEditor | 3.6.4 |
 | И куча остального! | |
 
 ### 📋Задание

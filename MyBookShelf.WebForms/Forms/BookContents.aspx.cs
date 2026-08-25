@@ -1,10 +1,11 @@
-﻿using MyBookShelf.Shared.Models;
+﻿using Ganss.Xss;
+using MyBookShelf.Shared.Helpers;
+using MyBookShelf.Shared.Models;
+using MyBookShelf.WebForms.Helpers;
 using MyBookShelf.WebForms.Pages;
 using System;
 using System.Threading.Tasks;
 using System.Web.UI;
-using MyBookShelf.Shared.Helpers;
-using MyBookShelf.WebForms.Helpers;
 
 namespace MyBookShelf.WebForms.Forms
 {
@@ -46,7 +47,8 @@ namespace MyBookShelf.WebForms.Forms
             if (!int.TryParse(hiddenBookId.Value, out int bookId))
                 return;
 
-            if (!textContents.Text.IsValidXml(out Exception exception))
+            string sanitizedText = textContents.Text.SanitizeText();
+            if (!sanitizedText.IsValidXml(out Exception exception))
             {
                 ShowError(exception);
                 return;
@@ -54,7 +56,7 @@ namespace MyBookShelf.WebForms.Forms
 
             try
             {
-                await Repository.UpdateContentsByBookIdAsync(bookId, textContents.Text);
+                await Repository.UpdateContentsByBookIdAsync(bookId, sanitizedText);
                 Response.NavigateTo(AppPages.Default);
             }
             catch (Exception ex)

@@ -1,8 +1,9 @@
-﻿using MyBookShelf.Shared.DataAccess.Repositories;
+﻿using Ganss.Xss;
+using MyBookShelf.Shared.Constants;
+using MyBookShelf.Shared.DataAccess.Repositories;
+using MyBookShelf.Shared.Helpers;
 using System;
 using System.Web.UI.WebControls;
-using MyBookShelf.Shared.Helpers;
-using MyBookShelf.Shared.Constants;
 
 namespace MyBookShelf.WebForms.Pages
 {
@@ -66,8 +67,4 @@ namespace MyBookShelf.WebForms.Pages
 
         #endregion
     }
-
-    
-
-    
 }

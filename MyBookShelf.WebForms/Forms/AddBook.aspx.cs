@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyBookShelf.WebForms.Helpers;
 using MyBookShelf.Shared.Constants;
+using MyBookShelf.Shared.Helpers;
 
 namespace MyBookShelf.WebForms.Forms
 {
@@ -30,12 +31,19 @@ namespace MyBookShelf.WebForms.Forms
             if (!Page.IsValid)
                 return;
 
+            string sanitizedContents = textContents.Text.SanitizeText();
+            if (!sanitizedContents.IsValidXml(out Exception exception))
+            {
+                ShowError(exception);
+                return;
+            }
+
             IBook book = new Book
             {
                 Title = textTitle.Text.Trim(),
                 Author = textAuthor.Text.Trim(),
-                PublishYear = ParsePublishYear(textPublishYear.Text.Trim()),
-                Contents = textContents.Text.Trim(),
+                PublishYear = ParsePublishYear(sanitizedContents),
+                Contents = sanitizedContents,
             };
 
             try

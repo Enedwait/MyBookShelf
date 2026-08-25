@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.UI;
 using MyBookShelf.WebForms.Helpers;
 using MyBookShelf.Shared.Constants;
+using MyBookShelf.Shared.Helpers;
 
 namespace MyBookShelf.WebForms.Forms
 {
@@ -58,12 +59,19 @@ namespace MyBookShelf.WebForms.Forms
             if (!int.TryParse(hiddenBookId.Value, out int bookId))
                 return;
 
+            string sanitizedContents = textContents.Text.SanitizeText();
+            if (!sanitizedContents.IsValidXml(out Exception exception))
+            {
+                ShowError(exception);
+                return;
+            }
+
             IBook book = new Book
             {
                 Id = bookId,
                 Title = textTitle.Text.Trim(),
                 Author = textAuthor.Text.Trim(),
-                PublishYear = ParsePublishYear(textPublishYear.Text.Trim()),
+                PublishYear = ParsePublishYear(sanitizedContents),
                 Contents = textContents.Text.Trim(),
             };
 

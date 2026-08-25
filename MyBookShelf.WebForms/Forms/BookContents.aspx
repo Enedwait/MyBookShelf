@@ -8,6 +8,8 @@
     Async="true"
 %>
 
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
+
 <asp:Content
     ContentPlaceHolderID="MainContent"
     runat="server">
@@ -19,14 +21,15 @@
         runat="server"/>
     
     <div class="form-group">
-        <label for="textContents">Contents (XML):</label>
-        <asp:TextBox 
+
+        <CKEditor:CKEditorControl 
             ID="textContents"
-            TextMode="MultiLine"
-            Rows="13"
-            Style="width:90vw; height:70vh"
+            BasePath="/Scripts/ckeditor/"
+            Toolbar="Full"
+            Height="500"
+            Language="en"
             ValidateRequestMode="Disabled"
-            runat="server"/>
+            runat="server" />
         <asp:CustomValidator 
             ControlToValidate="textContents"
             OnServerValidate="OnValidateXMLContents"
@@ -34,6 +37,7 @@
             Display="Dynamic"
             CssClass="text-danger"
             runat="server"/>
+        
     </div>
     
     <asp:Button ID="buttonSave"
