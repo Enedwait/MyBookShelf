@@ -2,7 +2,7 @@
 
 namespace MyBookShelf.Shared.Helpers
 {
-    public static class HTMLSanitizerHelper
+    public static class HtmlSanitizerHelper
     {
         #region SanitizeText
 
@@ -23,6 +23,8 @@ namespace MyBookShelf.Shared.Helpers
 
         public static void AddAllowedTags(this HtmlSanitizer sanitizer)
         {
+            // Здесь в качестве примера добавлены разрешённые xml-тэги для простоты
+
             sanitizer.AllowedTags.Add("BookContents");
             sanitizer.AllowedTags.Add("Header");
             sanitizer.AllowedTags.Add("Book");

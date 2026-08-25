@@ -28,6 +28,7 @@
             Toolbar="Full"
             Height="500"
             Language="en"
+            StartupMode="Source"
             ValidateRequestMode="Disabled"
             runat="server" />
         <asp:CustomValidator 

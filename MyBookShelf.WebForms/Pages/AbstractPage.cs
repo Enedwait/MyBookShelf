@@ -1,5 +1,4 @@
-﻿using Ganss.Xss;
-using MyBookShelf.Shared.Constants;
+﻿using MyBookShelf.Shared.Constants;
 using MyBookShelf.Shared.DataAccess.Repositories;
 using MyBookShelf.Shared.Helpers;
 using System;
@@ -50,7 +49,7 @@ namespace MyBookShelf.WebForms.Pages
             InitControls();
         }
 
-        protected virtual void OnLoadedFirstTime(object sender, EventArgs e) { }
+        protected virtual void OnLoadedFirstTime(object sender, EventArgs e){ }
 
         protected virtual void OnPostBack(object sender, EventArgs e){ }
 

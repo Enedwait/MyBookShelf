@@ -1,5 +1,4 @@
-﻿using Ganss.Xss;
-using MyBookShelf.Shared.Helpers;
+﻿using MyBookShelf.Shared.Helpers;
 using MyBookShelf.Shared.Models;
 using MyBookShelf.WebForms.Helpers;
 using MyBookShelf.WebForms.Pages;

@@ -29,4 +29,17 @@
 	@{
 		await Html.RenderPartialAsync("_ValidationScriptsPartial");
 	}
+	
+	<script src="~/lib/ckeditor/ckeditor.js"></script>
+	<script>
+		window.onload = function() {
+			CKEDITOR.replace('Contents', {
+				height: 500,
+				toolbar: 'Full',
+				language: 'en',
+				allowedContent: true,
+				startupMode:  'source'
+			});
+		};
+	</script>
 }
